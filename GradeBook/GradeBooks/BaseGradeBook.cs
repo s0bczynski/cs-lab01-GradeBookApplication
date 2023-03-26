@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GradeBook.GradeBooks
 {
@@ -265,6 +266,8 @@ namespace GradeBook.GradeBooks
                              select type).FirstOrDefault();
             
             return JsonConvert.DeserializeObject(json, gradebook);
+            
         }
+        public GradeBookType Type { get; set; }
     }
 }
