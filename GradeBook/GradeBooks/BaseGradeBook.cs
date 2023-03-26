@@ -10,8 +10,11 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace GradeBook.GradeBooks
 {
-    public class BaseGradeBook
+    public abstract class BaseGradeBook
     {
+
+
+        public GradeBookType Type { get; set; }
         public string Name { get; set; }
         public List<Student> Students { get; set; }
 
@@ -268,6 +271,5 @@ namespace GradeBook.GradeBooks
             return JsonConvert.DeserializeObject(json, gradebook);
             
         }
-        public GradeBookType Type { get; set; }
     }
 }
