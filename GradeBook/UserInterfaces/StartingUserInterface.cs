@@ -1,4 +1,5 @@
-﻿using GradeBook.GradeBooks;
+﻿using GradeBook.Enums;
+using GradeBook.GradeBooks;
 using System;
 
 namespace GradeBook.UserInterfaces
@@ -44,6 +45,19 @@ namespace GradeBook.UserInterfaces
             BaseGradeBook gradeBook = new BaseGradeBook(name);
             Console.WriteLine("Created gradebook {0}.", name);
             GradeBookUserInterface.CommandLoop(gradeBook);
+            if (parts[2] == "standard")
+            {
+                 gradeBook = new StandardGradeBook(name);
+            }
+            else if (parts[2] == "ranked")
+            {
+                 gradeBook = new RankedGradeBook(name);
+            }
+            else if (parts[2] != "ranked" && parts[2] != "standard")
+            {
+				Console.WriteLine(parts[2] + " is not a supported type of gradebook, please try again");
+                return;               
+			}
         }
 
         public static void LoadCommand(string command)
